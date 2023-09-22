@@ -1,12 +1,23 @@
 import { alpha, makeStyles } from '@material-ui/core/styles'
 
 const styles = makeStyles((theme) => ({
+  imgHeader: {
+    maxWidth: '45px',
+  },
   grow: {
     display: 'flex',
     justifyContent: 'space-between',
+    backgroundColor: '#808080',
+  },
+  boxTitleImg: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
-    display: 'none',
+    fontFamily: 'Koulen',
+    padding: '5px',
+    display: 'block',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
