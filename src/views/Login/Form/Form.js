@@ -32,7 +32,6 @@ const Form = () => {
       // const accessToken = response.data.accessToken
       return response
     } catch (error) {
-      console.log(data)
       console.log('Ocorreu algum erro! Tente novamente!')
     } finally {
       setLoading(false)

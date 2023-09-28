@@ -1,6 +1,6 @@
 export const getBaseURL = (project) => envsBaseUrl[project][env]
 
-const env = process.env.REACT_APP_API || 'development'
+const env = 'development'
 
 const envsBaseUrl = {
   fightForge: {

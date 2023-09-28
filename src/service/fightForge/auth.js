@@ -5,7 +5,7 @@ const fightForge = api.create('fightForge')
 const login = async ({ data }) => {
   return await fightForge.post('usuario/login', data)
 
-  // if (loginResponse.status === 200) {
+  // if (response.status === 200) {
   //   const identifyResponse = await service.fightForge.users.identify()
   // }
 }

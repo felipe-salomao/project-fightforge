@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
-import { Box, Button, TextField } from '@material-ui/core'
 import { Controller, useForm } from 'react-hook-form'
+
+import { Box, Button, TextField } from '@material-ui/core'
+
+import * as service from 'service'
+
 import schemas from '../schema'
 import useStyles from './styles'
 
@@ -15,7 +19,11 @@ const RegisterForm = () => {
     validationSchema: schemas.schemaLogin,
     defaultValues: {
       email: '',
-      password: '',
+      senha: '',
+      dataNascimento: '',
+      sexo: '',
+      nome: '',
+      codigo: '',
     },
   })
 
@@ -25,8 +33,8 @@ const RegisterForm = () => {
       const response = await service.fightForge.auth.register({ ...data })
 
       // const accessToken = response.data.accessToken
+      return response
     } catch (error) {
-      console.log(data)
       console.log('Ocorreu algum erro! Tente novamente!')
     } finally {
       setLoading(false)
@@ -47,8 +55,7 @@ const RegisterForm = () => {
         render={({ field }) => (
           <TextField
             {...field}
-            label="Data de nascimento"
-            type="nome"
+            type="datetime-local"
             margin="normal"
             variant="outlined"
             fullWidth
@@ -56,7 +63,7 @@ const RegisterForm = () => {
           />
         )}
         control={control}
-        name="nome"
+        name="dataNascimento"
         mode="onBlur"
       />
       <Controller
@@ -64,7 +71,7 @@ const RegisterForm = () => {
           <TextField
             {...field}
             label="Sexo"
-            type="nome"
+            type="text"
             margin="normal"
             variant="outlined"
             fullWidth
@@ -72,7 +79,7 @@ const RegisterForm = () => {
           />
         )}
         control={control}
-        name="nome"
+        name="sexo"
         mode="onBlur"
       />
       <Controller
@@ -125,7 +132,7 @@ const RegisterForm = () => {
           />
         )}
         control={control}
-        name="confirmed-password"
+        name="senha"
         mode="onBlur"
       />
       <Controller
@@ -133,7 +140,7 @@ const RegisterForm = () => {
           <TextField
             {...field}
             label="Código da empresa"
-            type="nome"
+            type="text"
             margin="normal"
             variant="outlined"
             fullWidth
@@ -141,7 +148,7 @@ const RegisterForm = () => {
           />
         )}
         control={control}
-        name="nome"
+        name="codigo"
         mode="onBlur"
       />
       <Box mt={2} className={classes.actionBox}>
