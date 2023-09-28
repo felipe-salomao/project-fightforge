@@ -22,22 +22,15 @@ const RegisterForm = () => {
   const onSubmit = async (data) => {
     try {
       setLoading(true)
-      // const response = await service.fightforge.teste({  })
+      const response = await service.fightForge.auth.register({ ...data })
 
       // const accessToken = response.data.accessToken
     } catch (error) {
-      console.log('erro')
+      console.log(data)
+      console.log('Ocorreu algum erro! Tente novamente!')
     } finally {
       setLoading(false)
     }
-  }
-
-  const defineErrorMessage = (error) => {
-    const response = error?.response
-    const status = response?.status
-    const errorMessage = response.data?.error?.message
-    if ((status === 401 || status === 422) && errorMessage) return errorMessage
-    return 'Ocorreu algum erro! Tente novamente!'
   }
 
   return (
