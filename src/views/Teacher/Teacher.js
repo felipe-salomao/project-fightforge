@@ -1,23 +1,23 @@
 import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import InputBase from '@material-ui/core/InputBase'
-import Badge from '@material-ui/core/Badge'
-import MenuItem from '@material-ui/core/MenuItem'
-import Menu from '@material-ui/core/Menu'
-import MenuIcon from '@material-ui/icons/Menu'
+import {
+  Box,
+  Button,
+  TextField,
+  AppBar,
+  Toolbar,
+  Typography,
+  Card,
+  CardMedia,
+  CardActions,
+  InputBase,
+  Grid,
+  Avatar,
+} from '@material-ui/core'
+
 import SearchIcon from '@material-ui/icons/Search'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import MailIcon from '@material-ui/icons/Mail'
-import Box from '@material-ui/core/Box'
-import NotificationsIcon from '@material-ui/icons/Notifications'
-import MoreIcon from '@material-ui/icons/MoreVert'
 import useStyles from './styles'
 import logo from 'images/fightforge.svg'
-import { Grid } from '@material-ui/core'
-import Avatar from '@material-ui/core/Avatar'
+import gay_foto from 'images/gay.jpg'
 
 const Teacher = () => {
   const classes = useStyles()
@@ -76,18 +76,36 @@ const Teacher = () => {
         </Toolbar>
       </AppBar>
       <Grid container>
-        <Grid item xs={6}>
-          <Avatar />
+        <Grid item xs={6} className={classes.gridStyle}>
+          <Card className={classes.AvatarImg}>
+            <CardMedia className={classes.media} image={gay_foto} title="gay" />
+            <CardActions className={classes.formatCardActions}>
+              <Button variant="contained" component="span" className={classes.buttonPrimary}>
+                Upload
+              </Button>
+            </CardActions>
+          </Card>
+          <Card className={classes.AvatarImg}>
+            <CardMedia className={classes.media} image={gay_foto} title="gay" />
+            <CardActions className={classes.formatCardActions}>
+              <Button variant="contained" component="span" className={classes.buttonPrimary}>
+                Upload
+              </Button>
+            </CardActions>
+          </Card>
         </Grid>
-        <Grid item xs={6}>
-          text
+        <Grid item xs={6} className={classes.gridStyleRigth}>
+          <Card className={classes.btnRight}>
+            <Button variant="contained" component="span" size="large" className={classes.buttonPrimary}>
+              listagem de alunos
+            </Button>
+            <Button variant="contained" component="span" size="large" className={classes.buttonPrimary}>
+              Agenda
+            </Button>
+          </Card>
         </Grid>
-        <Grid item xs={4}>
-          text
-        </Grid>
-        <Grid item xs={8}>
-          text
-        </Grid>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={8}></Grid>
       </Grid>
     </Box>
   )

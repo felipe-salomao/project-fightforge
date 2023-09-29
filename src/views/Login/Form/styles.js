@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core'
+import { CenterFocusStrong } from '@material-ui/icons'
 
 const styles = makeStyles((theme) => ({
   buttonPrimary: {
