@@ -2,7 +2,7 @@ import api from 'service/api'
 
 const fightForge = api.create('fightForge')
 
-const login = async ({ data }) => {
+const login = async (data) => {
   return await fightForge.post('usuario/login', data)
 
   // if (response.status === 200) {
