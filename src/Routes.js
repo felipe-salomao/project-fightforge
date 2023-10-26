@@ -1,5 +1,5 @@
 import { Routes as Switch, Route, BrowserRouter } from 'react-router-dom'
-import { Login, Register } from 'views'
+import { Login, Register, Teacher } from 'views'
 
 const Routes = () => {
   return (
@@ -7,6 +7,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/teacher" element={<Teacher />} />
       </Switch>
     </BrowserRouter>
   )
