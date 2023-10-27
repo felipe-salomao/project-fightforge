@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Box,
   Button,
-  TextField,
   AppBar,
   Toolbar,
   Typography,
@@ -11,13 +10,29 @@ import {
   CardActions,
   InputBase,
   Grid,
-  Avatar,
 } from '@material-ui/core'
-
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
 import SearchIcon from '@material-ui/icons/Search'
 import useStyles from './styles'
 import logo from 'images/fightforge.svg'
 import gay_foto from 'images/gay.jpg'
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein }
+}
+
+const rows = [
+  createData('Nome', 159, 6.0, 24, 4.0),
+  createData('Idade', 237, 9.0, 37, 4.3),
+  createData('Sexo', 262, 16.0, 24, 6.0),
+  createData('Modalidade', 305, 3.7, 67, 4.3),
+]
 
 const Teacher = () => {
   const classes = useStyles()
@@ -76,36 +91,35 @@ const Teacher = () => {
         </Toolbar>
       </AppBar>
       <Grid container>
-        <Grid item xs={6} className={classes.gridStyle}>
-          <Card className={classes.AvatarImg}>
+        <Grid item xs={2}>
+          <Card style={{ width: '100%' }}>
             <CardMedia className={classes.media} image={gay_foto} title="gay" />
             <CardActions className={classes.formatCardActions}>
-              <Button variant="contained" component="span" className={classes.buttonPrimary}>
-                Upload
-              </Button>
-            </CardActions>
-          </Card>
-          <Card className={classes.AvatarImg}>
-            <CardMedia className={classes.media} image={gay_foto} title="gay" />
-            <CardActions className={classes.formatCardActions}>
-              <Button variant="contained" component="span" className={classes.buttonPrimary}>
-                Upload
-              </Button>
+              <Button style={{ color: 'white' }}>Upload</Button>
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={6} className={classes.gridStyleRigth}>
-          <Card className={classes.btnRight}>
-            <Button variant="contained" component="span" size="large" className={classes.buttonPrimary}>
-              listagem de alunos
-            </Button>
-            <Button variant="contained" component="span" size="large" className={classes.buttonPrimary}>
-              Agenda
-            </Button>
-          </Card>
+        <Grid item xs={4}>
+          <TableContainer component={Paper} style={{ backgroundColor: 'black' }}>
+            <Table className={classes.table} size="small" aria-label="a dense table">
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow key={row.name}>
+                    <TableCell component="th" scope="row">
+                      {row.name}
+                    </TableCell>
+                    <TableCell align="right">{row.calories}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Grid>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={8}></Grid>
+        <Grid item xs={6}>
+          <Button style={{ color: 'white' }}>listagem de alunos</Button>
+          <Button style={{ color: 'white' }}>Agenda</Button>
+        </Grid>
+        <Grid item xs={12}></Grid>
       </Grid>
     </Box>
   )

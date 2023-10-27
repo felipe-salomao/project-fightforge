@@ -4,21 +4,8 @@ const styles = makeStyles((theme) => ({
   imgHeader: {
     maxWidth: '45px',
   },
-  gridStyle: {
-    display: 'flex',
-    alignItems: 'left',
-    justifyContent: 'left',
-    padding: '1%',
-  },
-  gridStyleRigth: {
-    display: 'flex',
-    alignItems: 'right',
-    justifyContent: 'right',
-    padding: '1%',
-  },
   media: {
     height: 0,
-    widht: '100%',
     paddingTop: '120%', // 16:9
   },
   buttonPrimary: {
@@ -42,9 +29,7 @@ const styles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   formatCardActions: {
-    display: 'flex',
     justifyContent: 'center',
-    placeItems: 'center',
     backgroundColor: '#808080',
     borderTop: 'solid #231F20 1px',
   },
