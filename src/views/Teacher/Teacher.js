@@ -11,16 +11,12 @@ import {
   InputBase,
   Grid,
 } from '@material-ui/core'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableContainer from '@material-ui/core/TableContainer'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-import Paper from '@material-ui/core/Paper'
+import CardContent from '@material-ui/core/CardContent'
 import SearchIcon from '@material-ui/icons/Search'
 import useStyles from './styles'
 import logo from 'images/fightforge.svg'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 import gay_foto from 'images/gay.jpg'
 
 function createData(name, calories, fat, carbs, protein) {
@@ -42,6 +38,24 @@ const Teacher = () => {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget)
+  }
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
   }
 
   const handleMobileMenuClose = () => {
@@ -91,35 +105,174 @@ const Teacher = () => {
         </Toolbar>
       </AppBar>
       <Grid container>
-        <Grid item xs={2}>
-          <Card style={{ width: '100%' }}>
+        <Grid item xs={2} style={{ margin: '10px' }}>
+          <Card style={{ border: 'solid #808080 3px' }}>
             <CardMedia className={classes.media} image={gay_foto} title="gay" />
             <CardActions className={classes.formatCardActions}>
-              <Button style={{ color: 'white' }}>Upload</Button>
+              <Button className={classes.buttonPrimary}>Upload</Button>
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={4}>
-          <TableContainer component={Paper} style={{ backgroundColor: 'black' }}>
-            <Table className={classes.table} size="small" aria-label="a dense table">
-              <TableBody>
-                {rows.map((row) => (
-                  <TableRow key={row.name}>
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+        <Grid item xs={1} style={{ margin: '10px' }}>
+          <div
+            className={classes.title}
+            style={{
+              color: 'white',
+              border: 'solid #808080 1px',
+              borderTopLeftRadius: '5px',
+              borderTopRightRadius: '5px',
+            }}
+          >
+            Nome: {'        '}
+            <span className={classes.title} style={{ color: 'white' }}>
+              Lucas Eduardo Santos de Farias
+            </span>
+          </div>
+          <div className={classes.title} style={{ color: 'white', border: 'solid #808080 1px' }}>
+            Idade: {'        '}
+            <span className={classes.title} style={{ color: 'white' }}>
+              19 Anos
+            </span>
+          </div>
+          <div className={classes.title} style={{ color: 'white', border: 'solid #808080 1px' }}>
+            Sexo: {'        '}
+            <span className={classes.title} style={{ color: 'white' }}>
+              Masculino
+            </span>
+          </div>
+          <div
+            className={classes.title}
+            style={{
+              color: 'white',
+              border: 'solid #808080 1px',
+              borderBottomLeftRadius: '5px',
+              borderBottomRightRadius: '5px',
+            }}
+          >
+            Modalidade: {'        '}
+            <span className={classes.title} style={{ color: 'white' }}>
+              Faixa Amarela
+            </span>
+          </div>
         </Grid>
-        <Grid item xs={6}>
-          <Button style={{ color: 'white' }}>listagem de alunos</Button>
-          <Button style={{ color: 'white' }}>Agenda</Button>
+        <Grid
+          item
+          xs={8}
+          style={{ backgroundColor: '#80808090', margin: '10px', border: 'solid black 2px', borderRadius: '10px' }}
+        >
+          <div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: 'Koulen',
+                fontSize: '20px',
+              }}
+            >
+              Lembretes
+            </div>
+            <div style={{ height: '350px' }}>
+              <Carousel style={{ height: '350px' }} responsive={responsive}>
+                <div style={{ height: '350px' }}>
+                  <Card style={{ height: '350px', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div style={{ height: '350px' }}>
+                  <Card style={{ height: '350px', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div style={{ height: '350px' }}>
+                  <Card style={{ height: '350px', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div style={{ height: '350px' }}>
+                  <Card style={{ height: '320px', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+              </Carousel>
+            </div>
+          </div>
         </Grid>
-        <Grid item xs={12}></Grid>
+        <Grid item xs={3}>
+          <Button className={classes.buttonFloat}>listagem de alunos</Button>
+          <Button className={classes.buttonFloat}>Agenda</Button>
+        </Grid>
+        <Grid item xs={12}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Button className={classes.buttonFloat}>listagem de alunos</Button>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Carousel responsive={responsive}>
+                <div>
+                  <Card style={{ width: '50%', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div>
+                  <Card style={{ width: '50%', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div>
+                  <Card style={{ width: '50%', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div>
+                  <Card style={{ width: '50%', backgroundColor: '#80808090' }}>
+                    <CardContent>
+                      <Typography variant="body2" component="p" style={{ color: 'white', fontFamily: 'Koulen' }}>
+                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+                        guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+              </Carousel>
+            </div>
+          </div>
+        </Grid>
       </Grid>
     </Box>
   )

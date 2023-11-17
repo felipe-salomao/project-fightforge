@@ -18,6 +18,15 @@ const styles = makeStyles((theme) => ({
     },
     fontWeight: 'bold',
   },
+  buttonFloat: {
+    backgroundColor: '#808080',
+    color: 'white ',
+    '&:hover': {
+      backgroundColor: 'red',
+    },
+    fontWeight: 'bold',
+    margin: '10px',
+  },
   buttonPrimaryBtnRight: {
     width: '100%',
     height: '100%',
@@ -30,8 +39,8 @@ const styles = makeStyles((theme) => ({
   },
   formatCardActions: {
     justifyContent: 'center',
-    backgroundColor: '#808080',
     borderTop: 'solid #231F20 1px',
+    backgroundColor: '#808080',
   },
   AvatarImg: {
     backgroundColor: '#808080',
@@ -43,11 +52,6 @@ const styles = makeStyles((theme) => ({
   btnRight: {
     backgroundColor: '#808080',
     border: 'solid #808080 1px',
-    display: 'grid',
-    placeItems: 'center',
-    width: '45%',
-    height: '100%',
-    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
   },
   grow: {
     display: 'flex',
