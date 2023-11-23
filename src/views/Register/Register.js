@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+
 import { Box, Container, Typography } from '@material-ui/core'
+
 import RegisterForm from './RegisterForm'
 import useStyles from './styles'
+
 import logo from 'images/fightforge.svg'
 
 const Register = () => {

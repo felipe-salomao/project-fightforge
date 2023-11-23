@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Box, Container, Typography } from '@material-ui/core'
 import LoginForm from './Form'
 import useStyles from './styles'

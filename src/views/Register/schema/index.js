@@ -1,5 +1,5 @@
-import schemaLogin from './schema'
+import schemaRegister from './schema'
 
 export default {
-  schemaLogin,
+  schemaRegister,
 }

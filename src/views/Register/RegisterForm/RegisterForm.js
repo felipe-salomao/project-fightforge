@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 import { Box, Button, TextField } from '@material-ui/core'
 
 import * as service from 'service'
+import { routes } from 'Routes'
 
 import schemas from '../schema'
 import useStyles from './styles'
@@ -11,12 +13,16 @@ import useStyles from './styles'
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false)
   const classes = useStyles()
+  const navigate = useNavigate()
+
+  const handleRegister = () => navigate(routes.root)
+
   const {
     handleSubmit,
     formState: { errors },
     control,
   } = useForm({
-    validationSchema: schemas.schemaLogin,
+    validationSchema: schemas.schemaRegister,
     defaultValues: {
       email: '',
       senha: '',
@@ -27,22 +33,22 @@ const RegisterForm = () => {
     },
   })
 
-  const onSubmit = async (data) => {
-    try {
-      setLoading(true)
-      const response = await service.fightForge.auth.register({ ...data })
+  // const onSubmit = async (data) => {
+  //   try {
+  //     setLoading(true)
+  //     const response = await service.fightForge.auth.register({ ...data })
 
-      // const accessToken = response.data.accessToken
-      return response
-    } catch (error) {
-      console.log('Ocorreu algum erro! Tente novamente!')
-    } finally {
-      setLoading(false)
-    }
-  }
+  //     const accessToken = response.data.accessToken
+  //     return response
+  //   } catch (error) {
+  //     console.log('Ocorreu algum erro! Tente novamente!')
+  //   } finally {
+  //     setLoading(false)
+  //   }
+  // }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <Controller
         render={({ field }) => (
           <TextField {...field} label="Nome" type="nome" variant="outlined" fullWidth className={classes.inputs} />
@@ -55,10 +61,14 @@ const RegisterForm = () => {
         render={({ field }) => (
           <TextField
             {...field}
-            type="datetime-local"
+            label="Data de Nascimento"
+            type="date"
             margin="normal"
             variant="outlined"
             fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
             className={classes.inputs}
           />
         )}
@@ -152,7 +162,7 @@ const RegisterForm = () => {
         mode="onBlur"
       />
       <Box mt={2} className={classes.actionBox}>
-        <Button type="submit" variant="contained" className={classes.buttonPrimary}>
+        <Button type="submit" variant="contained" className={classes.buttonPrimary} onClick={handleRegister}>
           Cadastre-se
         </Button>
       </Box>
