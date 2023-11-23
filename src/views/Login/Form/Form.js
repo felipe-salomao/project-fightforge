@@ -16,6 +16,7 @@ const Form = () => {
   const navigate = useNavigate()
 
   const handleRegister = () => navigate(routes.register)
+  const handleLogin = () => navigate(routes.teacher)
 
   const {
     handleSubmit,
@@ -81,7 +82,7 @@ const Form = () => {
         mode="onBlur"
       />
       <Box mt={2} className={classes.actionBox}>
-        <Button type="submit" variant="contained" className={classes.buttonPrimary}>
+        <Button type="submit" variant="contained" className={classes.buttonPrimary} onClick={handleLogin}>
           Acessar
         </Button>
         <divider className={classes.dividerStyle} />
